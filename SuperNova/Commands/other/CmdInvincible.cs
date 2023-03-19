@@ -26,7 +26,7 @@ namespace SuperNova.Commands.Misc {
             get { return new CommandAlias[] { new CommandAlias("GodMode") }; }
         }
         public override CommandPerm[] ExtraPerms {
-            get { return new[] { new CommandPerm(LevelPermission.Operator, "can toggle invinciblity of others") }; }
+            get { return new[] { new CommandPerm(LevelPermission.Operator, "can toggle invulnerability of others") }; }
         }
         
         public override void Use(Player p, string message, CommandData data) {
@@ -34,17 +34,17 @@ namespace SuperNova.Commands.Misc {
             if (who == null) return;
 
             if (p != who && !CheckExtraPerm(p, data, 1)) return;
-            if (!CheckRank(p, data, who, "toggle invincibility", true)) return;
+            if (!CheckRank(p, data, who, "toggle invulnerability", true)) return;
             
             who.invincible = !who.invincible;
             ShowPlayerMessage(p, who);
         }
         
         static void ShowPlayerMessage(Player p, Player target) {
-            string msg = target.invincible ? "now invincible" : "no longer invincible";
+            string msg = target.invincible ? "now invulnerable" : "no longer invulnerable";
             if (p == target) p.Message("You are {0}", msg);
 
-            string globalMsg = target.invincible ? Server.Config.InvincibleMessage : "has stopped being invincible";
+            string globalMsg = target.invincible ? Server.Config.InvincibleMessage : "has stopped being invulnerable";
             if (Server.Config.ShowInvincibleMessage && !target.hidden) {
                 Chat.MessageFrom(target, "λNICK &S" + globalMsg);
             } else if (p != target) {
