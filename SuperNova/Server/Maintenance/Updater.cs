@@ -27,9 +27,9 @@ namespace SuperNova {
     /// <summary> Checks for and applies software updates. </summary>
     public static class Updater {
         
-        public static string SourceURL = "https://github.com/RandomStrangers/SuperNova/";
-        public const string BaseURL    = "https://github.com/RandomStrangers/SuperNova/blob/master/";
-        public const string UploadsURL = "https://github.com/RandomStrangers/SuperNova/tree/master/Uploads";
+        public static string SourceURL = "https://github.com/RandomStrangers/SuperNova-Shared/";
+        public const string BaseURL    = "https://github.com/RandomStrangers/SuperNova-Shared/blob/master/";
+        public const string UploadsURL = "https://github.com/RandomStrangers/SuperNova-Shared/tree/master/Uploads";
         
         const string CurrentVersionURL = BaseURL + "Uploads/current_version.txt";
         #if TEN_BIT_BLOCKS
